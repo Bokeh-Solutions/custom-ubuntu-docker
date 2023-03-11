@@ -1,0 +1,24 @@
+# This docker file will create a ubuntu 22.04 server that you will be able to ssh into it with the ubuntu/password credentials
+
+# Specify the Parent or Base image to use
+FROM ubuntu:22.04
+
+# Update and upgrade your ubuntu server
+RUN apt update && apt upgrade -y
+
+# Install openssh and iproute2 packet
+RUN apt install -y openssh-server iproute2
+
+# Create the user ubuntu, its home directory and assign it to the primary group root and other group sudo
+# also we are assigning the uid 1000 to this user
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 ubuntu
+
+# Change the password of the user ubuntu to "password"
+RUN  echo 'ubuntu:password' | chpasswd
+
+# Enable OpenSSH
+RUN service ssh start
+
+# This command will run by default when the image is launched and will keep the container running so you can SSH into it
+CMD ["/usr/sbin/sshd","-D"]
+

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  ubuntu:
+    # container_name is used to specify a custom container name
+    container_name: ubuntu
+    # build specifies the configuration for creating the container
+    build:
+      # context is required and defines either a path to a directory containing a Dockerfile or an url to a git repository
+      context: ./docker/ubuntu
+    # ports is used to expose any port in the container to the host is in the format <port host>:<port container>
+    ports:
+      - '2222:22'
