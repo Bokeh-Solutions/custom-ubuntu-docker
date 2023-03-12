@@ -14,4 +14,4 @@ privileges into the system, we then we enable the "sshd" service.
 At this point you will have a container that will keep running and you can ssh into it
 
 ## More info
-You can have more info in https://www.bokehsolutions.com/blog/<TBD>
+You can have more info in the article [Creating a Container Image and how to Push it to a Private Registry](https://www.bokehsolutions.com/component/content/article/creating-a-container-image-and-how-to-push-it-to-a-private-container-registry.html?catid=12&Itemid=101)
